@@ -1,4 +1,6 @@
-Holberton School HBnB – Documentation
+Holberton School HBnB – Documentaton
+
+
 TASK 0 - High-Level Package Diagram
 Overview
 
@@ -55,6 +57,8 @@ Benefits Provides one single entry point Makes the system easier to understand I
 
 Communication Flow The user sends a request to the Presentation Layer The request goes to the Facade The Facade calls the Business Logic Layer The Business Logic Layer interacts with the Persistence Layer The result is returned back to the user through the same path
 
+
+
 Package Diagram
 
 classDiagram
@@ -89,6 +93,9 @@ PresentationLayer --> Facade : Uses
 Facade --> BusinessLogicLayer : Handles business logic
 BusinessLogicLayer --> PersistenceLayer : Database operations
 
+
+
+
 TASK 1 - Business Logic Layer
 Overview
 
@@ -103,6 +110,8 @@ The Business Logic layer contains the main entities of the application:
 User Place Review Amenity
 
 These entities represent the core functionality of the system and define the main business rules.
+
+
 
 Class Diagram
 
@@ -164,12 +173,18 @@ User "1" --> "0..*" Review : writes
 Place "1" --> "0..*" Review : has
 Place "0..*" -- "0..*" Amenity : includes
 
+
+
+
+
 TASK 2 - API Calls
 Overview
 
 This document presents two main API flows in the HBnB application using sequence diagrams. Each diagram illustrates how the Presentation, Business Logic, and Persistence layers interact with each other through the Facade pattern.
 
 The goal is to clearly show the request flow, from the user request to data processing and response return.
+
+
 
 User Registration flow
 
@@ -186,6 +201,8 @@ BusinessLogic->>Database: save user
 Database-->>BusinessLogic: confirmation
 BusinessLogic-->>API: success
 API-->>User: 201 Created
+
+
 
 Place Creation
 
@@ -206,6 +223,8 @@ BusinessLogic-->>Facade: place created
 Facade-->>API: success
 API-->>User: 201 Created
 
+
+
 Review Submission Flow
 sequenceDiagram
 
@@ -220,6 +239,7 @@ BusinessLogic->>Database: Save Review
 Database-->>BusinessLogic: Success
 BusinessLogic-->>API: Review Added
 API-->>User: Thank you for your review!
+
 
 
 Fetching a List of Places
